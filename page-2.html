@@ -25,7 +25,7 @@
             <div id="mapa" style="width: 100%; height: 50vh;"></div>
         </main>
         <footer>
-            <p>Nombre — Diseño y Nuevos Medios</p>
+            <p><a href="https://github.com/rodrigo-bot">Rodrigo Guzmán</a> <a href="https://github.com/profesorfaco/dno037-2021/tree/main/clase-07">DNO037</a></p>
         </footer>
         <script>
             document.getElementsByTagName("a")[2].style.textDecorationLine = "underline";
@@ -58,7 +58,7 @@
                     console.log(Cherburgo.length);
                     console.log(Queenstown.length);
 
-                    var miMapa = L.map("mapa").setView([50.371389,-4.142222], 5);
+                    var miMapa = L.map("mapa").setView([45.371389,-28.142222], 4.4);
 
                     L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw", {
                         maxZoom: 18,
@@ -69,11 +69,22 @@
 
                     var estilo = { color: "rgb(107, 146, 157)", weight: 1.5, fillColor: "rgb(207, 216, 220)", fillOpacity: 0.75 };
 
-                    L.circle([50.8965, -1.3968], Southampton.length * 100, estilo).addTo(miMapa).bindPopup("En Southampton embarcaron " + Southampton.length + " personas");
+                    L.circle([50.8965, -1.3968], Southampton.length * 200, estilo).addTo(miMapa).bindPopup("En Southampton embarcaron " + Southampton.length + " personas");
 
                     L.circle([49.659072, -1.611729], Cherburgo.length * 100, estilo).addTo(miMapa).bindPopup("En Cherburgo embarcaron " + Cherburgo.length + " personas");
 
                     L.circle([51.851, -8.2967], Queenstown.length * 100, estilo).addTo(miMapa).bindPopup("En Queenstown embarcaron " + Queenstown.length + " personas");
+
+                    var titanic = L.icon({
+                    iconUrl: 'titanic.png',                 
+
+                    iconSize:     [40, 40], // size of the icon         
+            
+                       
+                    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+                    });
+
+                    L.marker([41.731944,-49.945833], {icon: titanic}).addTo(miMapa);
                 },
             });
         </script>
